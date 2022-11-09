@@ -159,7 +159,7 @@ jobs:
     - name: Set L-SMASH REV_LIST_COUNT
       id: l-smash-rev
       run: |
-        cd ${{ github.workspace }}/l-smash
+        cd ${{ github.workspace }}/L-SMASH-JP
         REVCOUNT=`git rev-list --count HEAD`
         echo "REV_LIST_COUNT=${REVCOUNT}" >> $GITHUB_OUTPUT
         SHA=`git rev-parse HEAD`
@@ -168,7 +168,7 @@ jobs:
     - name: Set L-SMASH Works REV_LIST_COUNT
       id: l-smash-works-rev
       run: |
-        cd ${{ github.workspace }}/L-SMASH-Works
+        cd ${{ github.workspace }}/L-SMASH-Works-JP
         REVCOUNT=`git rev-list --count HEAD`
         echo "REV_LIST_COUNT=${REVCOUNT}" >> $GITHUB_OUTPUT
         SHA=`git rev-parse HEAD`
