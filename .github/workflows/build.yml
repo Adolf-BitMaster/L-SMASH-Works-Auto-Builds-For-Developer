@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        author: [HolyWu, VFR-maniac, Mr-Ojii]
-        l-smash_author: [l-smash, Mr-Ojii]
+        author: [Adolf-BitMaster]
+        l-smash_author: [Adolf-BitMaster]
     
     steps:
     - name: Checkout repository
@@ -84,10 +84,10 @@ jobs:
         make -j$(nproc)
         sudo make install -j$(nproc)
         
-    - name: Install L-SMASH
+    - name: Install L-SMASH-JP
       run: |
         cd ${{ github.workspace }}
-        git clone https://github.com/${{ matrix.l-smash_author }}/l-smash.git
+        git clone https://github.com/${{ matrix.l-smash_author }}/L-SMASH-JP.git
         cd l-smash
         ./configure --cross-prefix=i686-w64-mingw32-
         make lib -j$(nproc)
@@ -96,8 +96,8 @@ jobs:
     - name: Build L-SMASH Works
       run: |
         cd ${{ github.workspace }}
-        git clone https://github.com/${{ matrix.author }}/L-SMASH-Works.git
-        cd L-SMASH-Works/AviUtl
+        git clone https://github.com/${{ matrix.author }}/L-SMASH-Works-JP.git
+        cd L-SMASH-Works-JP/AviUtl
         ./configure --cross-prefix=i686-w64-mingw32- --extra-ldflags="-static-libgcc -static-libstdc++ -static" --extra-libs="-lpthread"
         make -j$(nproc)
 
