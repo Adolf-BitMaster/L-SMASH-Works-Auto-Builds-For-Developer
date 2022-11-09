@@ -88,7 +88,7 @@ jobs:
       run: |
         cd ${{ github.workspace }}
         git clone https://github.com/${{ matrix.l-smash_author }}/L-SMASH-JP.git
-        cd l-smash
+        cd L-SMASH-JP
         ./configure --cross-prefix=i686-w64-mingw32-
         make lib -j$(nproc)
         sudo make install-lib -j$(nproc)
